@@ -1,6 +1,6 @@
-plugins {
+plugins {             
     id 'java'
-}
+}  
 
 repositories {
     jcenter()
@@ -38,26 +38,27 @@ task runSpringMain(type: JavaExec) {
 }
 
 task runMemberMain(type: JavaExec) {
-	main = 'org.YeongJin.jdbc.spring.MemberMain'
+	main = 'org.YeongJin.jdbc.chap03.MemberMain'
 	classpath =  sourceSets.main.runtimeClasspath
 }
 
 task runMemberMainUsingSpring(type: JavaExec) {
-	main = 'org.YeongJin.jdbc.spring.MemberMainUsingSpring'
+	main = 'org.YeongJin.jdbc.chap03.MemberMainUsingSpring'
 	classpath =  sourceSets.main.runtimeClasspath
 }
 
 task runMemberMainUsingComponentScan(type: JavaExec) {
-	main = 'org.YeongJin.jdbc.spring.MemberMainUsingComponentScan'
+	main = 'org.YeongJin.jdbc.chap04.MemberMainUsingComponentScan'
+	classpath =  sourceSets.main.runtimeClasspath
+}
+
+task runExampleMain(type: JavaExec) {
+	main = 'org.YeongJin.book.example.Example'
 	classpath =  sourceSets.main.runtimeClasspath
 }
 
 task runSpringJdbcMain (type: JavaExec) {
 	main = 'org.YeongJin.jdbc.spring.SpringJdbcMain'
 	classpath =  sourceSets.main.runtimeClasspath
-}
-
-task runExampleMain(type: JavaExec){
-main = 'org.YeongJin.book.example.ExampleMain'
-classpath = sourceSets.main.runtimeClasspath
-}
+	}
+	
