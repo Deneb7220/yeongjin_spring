@@ -1,5 +1,6 @@
 package org.YeongJin.article_1;
 
+
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,7 +13,7 @@ public class ArticleMainUsingSpring {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
-				"article.xml");
+				"article_1.xml");
 		ArticleService articleService = context.getBean("articleService",
 				ArticleService.class);
 		context.close();

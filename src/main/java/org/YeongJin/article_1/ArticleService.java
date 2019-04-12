@@ -1,19 +1,21 @@
 package org.YeongJin.article_1;
 
+
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * articleDao를 사용해서 글 목록, 조회, 추가, 수정, 삭제를 한다.
  * 
  * @author Jacob
  */
+@Service
 public class ArticleService {
 
+	@Autowired
 	ArticleDao articleDao;
-
-	public void setArticleDao(ArticleDao articleDao) {
-		this.articleDao = articleDao;
-	}
 
 	/**
 	 * 글 목록
@@ -36,11 +38,11 @@ public class ArticleService {
 	 */
 	public void addArticle() {
 		Article article = new Article();
-		article.setTitle("이야 월급날이다.");
+		article.setTitle("새로운 '터미네이터' 영화의 스틸이 공개됐다(사진 6장)");
 		article.setContent(
-				"월세님이 퍼가셨습니다, 핸드폰요금님이 퍼가셨습니다");
+				"지난 2월, 제임스 카메론 감독은 자신이 제작중인 새로운 ‘터미네이터’ 영화의 가제를 공개했다. ’터미네이터 : 다크 페이트(Terminator: Dark Fate)다. 이 제목은 이제 가제가 아닌 정식 제목이 됐고, 20세기 폭스는 4월 6일, 이 영화의 스틸을 공개했다.");
 		article.setUserId("1");
-		article.setName("박영진");
+		article.setName("조원석");
 		if (articleDao.addArticle(article) > 0)
 			System.out.println("글을 추가했습니다.");
 		else

@@ -1,20 +1,24 @@
 package org.YeongJin.article_1;
 
+
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 /**
  * Spring JDBC를 사용해서 ArticleDao를 구현
  * 
  * @author Jacob
  */
+@Repository("articleDao")
 public class ArticleDaoImplUsingSpringJdbc implements ArticleDao {
 	/**
 	 * 목록 가져오는 sql
 	 */
-	static final String LIST_ARTICLES = "SELECT articleId, title, name, cdate FROM article LIMIT 20";
+	static final String LIST_ARTICLES = "SELECT articleId, title, name, cdate FROM article ORDER BY articleId desc LIMIT 100";
 
 	/**
 	 * 글 1개 가져오는 sql
@@ -36,11 +40,8 @@ public class ArticleDaoImplUsingSpringJdbc implements ArticleDao {
 	 */
 	static final String DELETE_ARTICLE = "DELETE FROM article WHERE articleId=?";
 
+	@Autowired
 	JdbcTemplate jdbcTemplate;
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 	/**
 	 * 글 목록
